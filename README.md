@@ -33,6 +33,63 @@ _(Post model building, visual tools can be used to assess model lack-of-fit and 
   + Low Bias: one that can be highly flexible and has the capacity to fit a variety of different shapes and patterns
   + High Bias: would be unable to estimate values close to their true theoretical counterparts
 
+## Encoding Categorical Predictors
+<img src="Images/Dummy.PNG" width="600">
+
+- Create an "Other" category for rarely occuring predictors
+- Feature Hashing: encoding predictors with many categories
+- **Supervised Encoding Methods**
+  + Effect / Likelihood Encoding: Mean of a certain category
+
+## Engineering Numeric Predictors
+- **Potential Problems**
+  + Different scales
+  + Skewed Distributions
+  + Small number of extreme values
+  + Complex relationship with the response and is truly predictive but cannot be adequately represented with a simple function or extracted by sophisticated models.
+  + Contain relevant and overly redundant information. That is, the information collected could be more effectively and efficiently represented with a smaller, consolidated number of new predictors while still preserving or enhancing the new predictors’ relationship with the response.
+
+### 1:1 Transformations
+**BoxCox** _Can only be applied to data that is strictly positive_
+
+<img src="Images/BoxCox.PNG" width="200">
+
+**YeoJohnson**: can be used on any numeric data
+
+**Log Transformation**
+
+**Centering and Scaling**
+
+### 1:Many Transformations
+**Basis Expansion**:
+
+<img src="Images/Basis.PNG" width="200">
+
+**Splines**:
+
+**Discretizing**:
+- Potential Problems
+  + extremely unlikely that the underlying trend is consistent with the new model.
+  + when a real trend exists, discretizing the data is most likely making it harder for the model to do an effective job since all of the nuance in the data has been removed.
+  + there is probably no objective rationale for a specific cut-point.
+  + when there is no relationship between the outcome and the predictor, there is a substantial increase in the probability that an erroneous trend will be “discovered”
+
+### Many:Many Transformations
+**Principal Component Analysis**
+
+**Independent Component Analysis**
+It creates new components that are linear combinations of the original variables but does so in a way that the components are as statistically independent from one another as possible.
+- no unique ordering of the components.
+
+**Non-negative Matrix Factorization**
+
+**Partial Least Squares**
+ find linear functions (called latent variables) of the predictors that have optimal covariance with the response. This means that the response guides the dimension reduction such that the scores have the highest possible correlation with the response in the training data.
+
+ **Spatial Sign**
+ 
+ <img src="Images/SpatialSign.PNG" width="200">
+
 # Feature Selection
 
 ## Wrapper Methods
