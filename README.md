@@ -87,13 +87,45 @@ It creates new components that are linear combinations of the original variables
  find linear functions (called latent variables) of the predictors that have optimal covariance with the response. This means that the response guides the dimension reduction such that the scores have the highest possible correlation with the response in the training data.
 
  **Spatial Sign**
- 
+
  <img src="Images/SpatialSign.PNG" width="200">
+
+## Interaction Effects
+> When beginning the search for interactions, expert knowledge about the system will always be most beneficial and can help narrow the search.
+
+> When beginning the search for interactions, expert knowledge about the system will always be most beneficial and can help narrow the search. Then resampling approaches or penalized models can be used to locate the interactions that may usefully improve a model.
+
+> As the number of predictors grows, complete enumeration becomes practically unfeasible. Instead, methods that can readily identify potentially important interactions without searching the entire space should be used. These include two-stage modeling, tree-based methods, and the feasible solution algorithm.
+
+> When the search is complete, the interaction terms that are most likely to improve model performance can be added to a simpler model like linear or logistic regression. The predictive performance can then be estimated through cross-validation and compare to models without these terms to determine the overall predictive improvement.
+
+> **Hierarchy Principal**: the higher the degree of the Interaction, the less likely it will explain variation in the response \
+> **Effect Sparsity**: only a fraction of the possible effects truly explain significant amount of response variation \
+> **Heredity Principal**: interaction terms may only be considered if the ordered terms preceding the interaction are effective at explaining response variation
+
+### Brute-Force Approach
+- **Simple Screening**
+- **Penalized Regression**
+
+### Enumeration Practically Impossible
+- **Tree-Based Methods**
+- **MARS - FDA _(Classification Version)_**
+- **Cubist**
+- **Feasible Solution Algorithm**
+
+---
 
 # Feature Selection
 
+## Intrinsic Methods
+feature selection naturally incorporated with the modeling process.
+_(i.e. tree-based & rule-based models, MARS, Regularization)
+
+## Filter Methods
+conduct an initial supervised analysis of the predictors to determine which are important and then only provide these to the model. Potential Concern: _(a selection of predictors that meets a filtering criteria like statistical significance may not be a set that improves predictive performance)._
+
 ## Wrapper Methods
-use an external search procedure to choose different subsets of the whole predictor set to evaluate in a model. This approach separates the feature search process from the model fitting process. _(i.e. backwards/stepwise selection and genetic algorithms)_
+use an external search procedure to choose different subsets of the whole predictor set to evaluate in a model. This approach separates the feature search process from the model fitting process. can take either a **greedy** - **_chooses the search path based on the direction that seems best at the time in order to achieve the best immediate benefit_** or **non-greedy** - **_re-evaluate previous feature combinations and would have the ability to move in a direction that is initially unfavorable if it appears to have a potential benefit after the current step._**
 
 ## Embedded Methods
 feature selection procedure occurs naturally course of the model fitting process. Here an example would be a simple decision tree where variables are selected when the model uses them in a split. If a predictor is never used in a split, the prediction equation is functionally independent of this variable and it has been selected out.
