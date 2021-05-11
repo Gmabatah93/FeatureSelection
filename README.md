@@ -117,15 +117,43 @@ It creates new components that are linear combinations of the original variables
 
 # Feature Selection
 
+> - support vector machines and neural networks, are sensitive to irrelevant predictors.
+> -  linear or logistic regression are vulnerable to correlated predictors
+
+### Effect of Irrelevant Features
+
+<img src="Images/Effects.PNG" width="400">
+
 ## Intrinsic Methods
 feature selection naturally incorporated with the modeling process.
-_(i.e. tree-based & rule-based models, MARS, Regularization)
+_(i.e. tree-based & rule-based models, MARS, Regularization).
+- **Adv**: relatively fast since the selection process is embedded within the model fitting process and provide a direct connection between selecting features and the objective function.
+- **DisAdv**: model-dependent
 
 ## Filter Methods
+
+<img src="Images/Filter.PNG" width="560">
+
 conduct an initial supervised analysis of the predictors to determine which are important and then only provide these to the model. Potential Concern: _(a selection of predictors that meets a filtering criteria like statistical significance may not be a set that improves predictive performance)._
+- **Adv**: simple and tend to be fast and effective at capturing the large trends _(i.e., individual predictor-outcome relationship)_
+- **DisAdv**: prone to over-selecting predictors, a selection of predictors that meets a filtering criteria like statistical significance may not be a set that improves predictive performance7
+
+**Simple Filters**: effective at identifying individual predictors that are associated with the outcome. However, these filters are very susceptible to finding predictors that have strong associations in the available data but do not show any association with new data
+  + [Chi-Square | Odds-Ratio | t-test | ROC/Precision-Recall Curves | ANOVA | F-test | Correlation | MIC Values | GAM (p-value)]
 
 ## Wrapper Methods
 use an external search procedure to choose different subsets of the whole predictor set to evaluate in a model. This approach separates the feature search process from the model fitting process. can take either a **greedy** - **_chooses the search path based on the direction that seems best at the time in order to achieve the best immediate benefit_** or **non-greedy** - **_re-evaluate previous feature combinations and would have the ability to move in a direction that is initially unfavorable if it appears to have a potential benefit after the current step._**
+
+* ### Greedy
+
+* ### Non-Greedy
+    + **Naive Bayes Models**: naive aspect of this model is due to a very stringent assumption: the predictors are assumed to be independent. This enables the joint likelihood to be computed as a product of individual class-specific values
+
+    + **Simulated Annealing**:
+    <img src="Images/SimAnn.PNG" width="400">
+
+    + **Genetic Algorithm**:
+    
 
 ## Embedded Methods
 feature selection procedure occurs naturally course of the model fitting process. Here an example would be a simple decision tree where variables are selected when the model uses them in a split. If a predictor is never used in a split, the prediction equation is functionally independent of this variable and it has been selected out.
