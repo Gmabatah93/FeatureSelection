@@ -149,11 +149,12 @@ use an external search procedure to choose different subsets of the whole predic
 * ### Non-Greedy
     + **Naive Bayes Models**: naive aspect of this model is due to a very stringent assumption: the predictors are assumed to be independent. This enables the joint likelihood to be computed as a product of individual class-specific values
 
-    + **Simulated Annealing**:
+    + **Simulated Annealing**: Exploit - DisAdv (local optimal)
     <img src="Images/SimAnn.PNG" width="400">
+    <img src="Images/Fitness.PNG" width="400">
 
     + **Genetic Algorithm**:
-    
+
 
 ## Embedded Methods
 feature selection procedure occurs naturally course of the model fitting process. Here an example would be a simple decision tree where variables are selected when the model uses them in a split. If a predictor is never used in a split, the prediction equation is functionally independent of this variable and it has been selected out.
